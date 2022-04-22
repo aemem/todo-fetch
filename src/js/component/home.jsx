@@ -77,8 +77,12 @@ const Home = () => {
 								<button
 									className="bg-transparent border-0"
 									type="button"
-									onClick={(i) => {
-										list.splice(i, 1);
+									onClick={() => {
+										setList(
+											list.filter(
+												(t, index) => index != i
+											)
+										);
 									}}>
 									X
 								</button>
@@ -88,7 +92,7 @@ const Home = () => {
 				);
 			})}
 			<div className="mx-auto mb-3 w-25 border bg-light counter">
-				{list.length > 0
+				{list.length >= 0
 					? list.length + " items"
 					: "No tasks, add a task"}
 			</div>
